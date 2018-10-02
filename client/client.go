@@ -32,7 +32,7 @@ func main() {
 
 	switch *operation {
 	case "add":
-		// need to find away to avoid duplicate the error handling and printing the result
+
 		res, err := client.Add(context.Background(),
 			&mathpb.Parameters{Param1: int32(*param1),
 				Param2: int32(*param2)})

@@ -14,13 +14,13 @@ import (
 
 const port = ":9000"
 
-// main works as the entry point for starting the calculator service
+// main works as the entry point for starting the math service
 func main() {
 	lis, err := net.Listen("tcp", port)
 	if err != nil {
 		log.Fatal(err)
 	}
-	// for this simple task, we do not need to secure the communication
+
 	opts := []grpc.ServerOption{}
 	s := grpc.NewServer(opts...)
 	mathpb.RegisterMathServer(s, new(MathService))
@@ -29,7 +29,7 @@ func main() {
 
 }
 
-// CalculateorService implements the Calculator interface
+// MathService implements the Math interface
 type MathService struct{}
 
 // Add adds tow integers and return a float result
